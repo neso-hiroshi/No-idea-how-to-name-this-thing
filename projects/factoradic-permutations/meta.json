@@ -1,0 +1,7 @@
+{
+  "name": "factoradic-permutations",
+  "description": "Explores the factorial number system (factoradic) and its bijection with permutations, implementing O(1) ranking/unranking with const generics and zero-cost iterators.",
+  "generated_at": "2026-06-17T07:12:39.714250",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "file_count": 1
+}
