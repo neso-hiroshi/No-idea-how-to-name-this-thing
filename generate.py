@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime
 
 OPENROUTER_API_KEY = os.environ["OPENROUTER_API_KEY"]
-MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
+MODEL = "nex-agi/nex-n2-pro:free"
 PROJECTS_DIR = Path("projects")
 
 PROMPT = """Generate a random self-contained Rust project that explores one of these areas:
