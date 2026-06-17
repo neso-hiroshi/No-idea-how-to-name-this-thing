@@ -1,0 +1,7 @@
+{
+  "name": "padic-hensel-sqrt",
+  "description": "Generates a random p-adic unit and recovers its square root modulo p^n using Hensel lifting.",
+  "generated_at": "2026-06-17T08:00:38.963815",
+  "model": "nex-agi/nex-n2-pro:free",
+  "file_count": 1
+}
