@@ -76,7 +76,14 @@ def call_api(prompt: str) -> str:
     print("DEBUG status:", response.status_code)
     print("DEBUG body:", response.text[:1000])
     response.raise_for_status()
-    return response.json()["choices"][0]["message"]["content"]
+    msg = response.json()["choices"][0]["message"]
+    content = msg.get("content") or ""
+    if not content.strip():
+        for block in msg.get("reasoning_details", []):
+            if block.get("type") == "reasoning.text":
+                content = block.get("text", "")
+                break
+    return content
 
 
 def extract_tag(text: str, tag: str) -> str | None:
