@@ -73,8 +73,9 @@ def call_api(prompt: str) -> str:
         }),
         timeout=300,
     )
+    print("DEBUG status:", response.status_code)
+    print("DEBUG body:", response.text[:1000])
     response.raise_for_status()
-    print("DEBUG:", json.dumps(data, indent=2)[:1000])
     return response.json()["choices"][0]["message"]["content"]
 
 
