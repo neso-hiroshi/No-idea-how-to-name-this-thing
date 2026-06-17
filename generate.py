@@ -10,9 +10,21 @@ OPENROUTER_API_KEY = os.environ["OPENROUTER_API_KEY"]
 MODEL = "nvidia/nemotron-3-ultra-550b-a55b:free"
 PROJECTS_DIR = Path("projects")
 
-PROMPT = """Generate a random self-contained Rust project. 
-Be creative — pick any idea (game, tool, algorithm, simulation, puzzle, etc).
-The project must compile and run correctly with no errors.
+PROMPT = """Generate a random self-contained Rust project that explores one of these areas:
+
+- Mathematical algorithms (number theory, combinatorics, algebra, geometry)
+- Unusual numeral systems (balanced ternary, bijective base-k, p-adic, factorial number system...)
+- Cryptography or hashing (implement from scratch, not using libraries)
+- Bit manipulation and low-level tricks
+- Data structures implemented from scratch (tries, skip lists, finger trees, union-find...)
+- Automata, grammars, or formal languages
+- Procedural generation (fractals, L-systems, cellular automata, noise...)
+- Physics or simulation (nbody, wave equation, diffusion...)
+- Compression algorithms
+- Anything that shows off interesting Rust: unsafe, const generics, trait magic, zero-cost abstractions
+
+Avoid: web servers, CRUD apps, file managers, todo lists, simple games.
+Prefer: things that produce interesting output when run, demonstrate a non-obvious concept, or explore edges of the language.
 
 Respond ONLY in this exact XML format, nothing else before or after:
 
@@ -22,7 +34,9 @@ Respond ONLY in this exact XML format, nothing else before or after:
 <cargo_toml>
 [package]
 name = "..."
-...full Cargo.toml content here...
+version = "0.1.0"
+edition = "2021"
+...rest of Cargo.toml...
 </cargo_toml>
 <files>
 <file>
@@ -35,11 +49,11 @@ name = "..."
 </project>
 
 Rules:
-- Use only stable Rust features
-- External crates are allowed in Cargo.toml if needed
-- The project must be fully functional, not a skeleton
-- Each file must be complete, no placeholders or TODO comments
-- Make it interesting and non-trivial"""
+- Stable Rust only
+- External crates allowed if genuinely needed
+- Fully functional, produces real output when run
+- No placeholders, no TODO comments, no skeleton code
+- Single binary project (no workspaces)"""
 
 
 def call_api(prompt: str) -> str:
