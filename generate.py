@@ -53,7 +53,8 @@ Rules:
 - External crates allowed if genuinely needed
 - Fully functional, produces real output when run
 - No placeholders, no TODO comments, no skeleton code
-- Single binary project (no workspaces)"""
+- Single binary project (no workspaces)
+- Do NOT use CDATA sections in the XML, output code as plain text"""
 
 
 def call_api(prompt: str) -> str:
