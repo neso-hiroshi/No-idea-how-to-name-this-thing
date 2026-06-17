@@ -1,0 +1,7 @@
+{
+  "name": "matrix-rain",
+  "description": "Interactive terminal-based Matrix-style digital rain animation with configurable columns, colors, and real-time controls",
+  "generated_at": "2026-06-17T06:59:10.251377",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "file_count": 1
+}
