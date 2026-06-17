@@ -1,0 +1,7 @@
+{
+  "name": "p-adic-hensel-lifts",
+  "description": "Computes square roots modulo p^n by Hensel lifting and prints their p-adic digit expansions.",
+  "generated_at": "2026-06-17T15:35:29.532330",
+  "model": "nex-agi/nex-n2-pro:free",
+  "file_count": 1
+}
