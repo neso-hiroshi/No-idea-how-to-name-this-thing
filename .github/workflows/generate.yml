@@ -1,0 +1,41 @@
+name: Generate Rust Project
+
+on:
+  # Run automatically every 6 hours
+  schedule:
+    - cron: "0 */6 * * *"
+  # Also allows manual trigger from GitHub UI (Actions tab → Run workflow)
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to push commits back
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate project
+        id: gen
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python generate.py
+
+      - name: Commit and push
+        run: |
+          git config user.name  "rust-zoo-bot"
+          git config user.email "bot@rust-zoo"
+          git add projects/
+          git diff --cached --quiet && echo "Nothing to commit" && exit 0
+          git commit -m "🦀 add ${{ steps.gen.outputs.project_name }}"
+          git push
