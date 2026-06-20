@@ -1,0 +1,7 @@
+{
+  "name": "p-adic-sqrt-demo",
+  "description": "Computes 5-adic square roots of 11 by Tonelli-Shanks modulo 5 and Hensel lifting, printing a verification table.",
+  "generated_at": "2026-06-20T14:08:02.455482",
+  "model": "nex-agi/nex-n2-pro:free",
+  "file_count": 1
+}
