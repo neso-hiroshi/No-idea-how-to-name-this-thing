@@ -1,0 +1,7 @@
+{
+  "name": "padic-sqrt",
+  "description": "Computes p-adic square roots of -1 using Hensel lifting and prints their digit expansions.",
+  "generated_at": "2026-06-20T08:57:39.281184",
+  "model": "nex-agi/nex-n2-pro:free",
+  "file_count": 1
+}
